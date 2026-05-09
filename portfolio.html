@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Portfolio + Blog CMS</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            margin: 0;
+            background: #f4f4f4;
+        }
+
+        header {
+            background: #333;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        section {
+            margin: 20px;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+        }
+
+        input, textarea {
+            width: 100%;
+            margin: 10px 0;
+            padding: 10px;
+        }
+
+        button {
+            padding: 10px;
+            background: #007BFF;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #0056b3;
+        }
+
+        .post {
+            margin-top: 15px;
+            padding: 10px;
+            border: 1px solid #ddd;
+        }
+    </style>
+
+</head>
+
+<body>
+
+<header>
+    <h1>My Portfolio</h1>
+    <p>Welcome to my website</p>
+</header>
+
+<section>
+    <h2>About Me</h2>
+    <p>I am a student passionate about web development.</p>
+</section>
+
+<section>
+    <h2>Blog CMS</h2>
+
+    <input type="text" id="title" placeholder="Enter blog title">
+    <textarea id="content" placeholder="Enter blog content"></textarea>
+    <button onclick="addPost()">Add Post</button>
+
+    <div id="posts"></div>
+</section>
+
+<script>
+    function addPost() {
+        let title = document.getElementById("title").value;
+        let content = document.getElementById("content").value;
+
+        if (title === "" || content === "") {
+            alert("Please fill all fields");
+            return;
+        }
+
+        let postDiv = document.createElement("div");
+        postDiv.className = "post";
+
+        postDiv.innerHTML = "<h3>" + title + "</h3><p>" + content + "</p>";
+
+        document.getElementById("posts").appendChild(postDiv);
+
+        document.getElementById("title").value = "";
+        document.getElementById("content").value = "";
+    }
+</script>
+
+</body>
+</html>
